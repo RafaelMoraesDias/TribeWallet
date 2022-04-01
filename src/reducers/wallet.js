@@ -1,15 +1,17 @@
 const initialState = {
-  wallet: {
-    currencies: [],
-    expenses: [],
-  },
+  currencies: [],
+  expenses: [],
 };
 
-function wallet(state = initialState, action) {
+const wallet = (state = initialState, action) => {
   switch (action.type) {
+  // case 'ADDVALUE':
+  // return { ...state,
+  //   currecies: action.value,
+  // };
   default:
     return state;
   }
-}
+};
 
 export default wallet;
