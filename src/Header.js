@@ -33,7 +33,6 @@ const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
 //   expenses: state.wallet.expenses,
 });
-
 const mapDispatchToProps = (dispatch) => ({
   getCurrencies: () => dispatch(getApi()),
 });
