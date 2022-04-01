@@ -21,7 +21,7 @@ class Header extends React.Component {
           0
         </h3>
         <h3 data-testid="header-currency-field">
-          { currencies }
+          BRL
         </h3>
       </div>
     );
