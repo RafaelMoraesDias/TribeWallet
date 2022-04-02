@@ -10,12 +10,16 @@ class Wallet extends React.Component {
       <div>
         <Header />
         <section>
-          <span data-testid="value-input">
+          <label htmlFor="value" data-testid="value-input">
             Valor da Despeza
-          </span>
-          <span data-testid="description-input">
+            <input type="text" />
+
+          </label>
+          <label htmlFor="description" data-testid="description-input">
             Descrição da Despeza
-          </span>
+            <input type="text" />
+
+          </label>
           <label htmlFor="currency" data-testid="currency-input">
             Moeda
             <select id="currency">
@@ -42,7 +46,21 @@ class Wallet extends React.Component {
               <option value="Saúde">Saúde</option>
             </select>
           </label>
-
+        </section>
+        <section id="table">
+          <table>
+            <tr>
+              <th>Descrição</th>
+              <th>Tag</th>
+              <th>Método de pagamento</th>
+              <th>Valor</th>
+              <th>Moeda</th>
+              <th>Câmbio utilizado</th>
+              <th>Valor convertido</th>
+              <th>Moeda de conversão</th>
+              <th> Editar/Excluir</th>
+            </tr>
+          </table>
         </section>
       </div>
     );
