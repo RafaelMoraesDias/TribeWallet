@@ -1,24 +1,32 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { getApi } from './actions/api';
 
 class Header extends React.Component {
-  componentDidMount() {
-    const { getCurrencies } = this.props;
-    getCurrencies();
-  }
-
   render() {
-    const { email, currencies } = this.props;
-    console.log(currencies);
+    const { email, expenses } = this.props;
+    let soma = 0;
+    if (expenses.length !== 0) {
+      console.log(expenses);
+      const expensesValue = expenses.map((elem) => {
+        const { value, currency, exchangeRates } = elem;
+        console.log(currency);
+        console.log(exchangeRates[currency]);
+        const convertedValue = exchangeRates[currency].ask;
+        console.log(convertedValue);
+        const FinalValue = +value * convertedValue;
+        return FinalValue;
+      });
+      soma = expensesValue.reduce((acc, curr) => acc + curr, 0).toFixed(2);
+    }
+
     return (
       <div>
         <h2 data-testid="email-field">
           { email }
         </h2>
         <h3 data-testid="total-field">
-          0
+          { soma }
         </h3>
         <h3 data-testid="header-currency-field">
           BRL
@@ -30,15 +38,12 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
-  currencies: state.wallet.currencies,
-//   expenses: state.wallet.expenses,
+  expenses: state.wallet.expenses,
+  exchangeRates: state.wallet.expenses,
 });
-const mapDispatchToProps = (dispatch) => ({
-  getCurrencies: () => dispatch(getApi()),
-});
+
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  currencies: PropTypes.string.isRequired,
-  getCurrencies: PropTypes.func.isRequired,
+  expenses: PropTypes.arrayOf(Object).isRequired,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

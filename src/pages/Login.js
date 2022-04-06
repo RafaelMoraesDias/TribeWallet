@@ -29,7 +29,7 @@ class Login extends React.Component {
     const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     const SEIS = 6;
     const { email, password } = this.state;
-    console.log(emailRegex.test(email));
+    // console.log(emailRegex.test(email));
     if ((emailRegex.test(email)) && password.length >= SEIS) {
       this.setState({
         IsDisable: false,
