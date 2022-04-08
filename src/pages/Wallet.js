@@ -42,9 +42,9 @@ class Wallet extends React.Component {
     }
 
     render() {
-      const { currencies } = this.props;
+      const { currencies, expenses } = this.props;
       const { value, description, currency, method, tag } = this.state;
-      // console.log(expenses);
+      console.log(expenses);
       return (
         <div>
           <Header />
@@ -140,9 +140,10 @@ class Wallet extends React.Component {
                 <th>Moeda de conversão</th>
                 <th> Editar/Excluir</th>
               </tr>
-              {/* {expenses.map((el) => {
+              {expenses.map((el) => {
                 const { name, ask } = Object.values(el.exchangeRates)
                   .find((elem) => elem.code === el.currency);
+                console.log(ask);
                 return (
                   <tr key={ el.id }>
                     <td>{ el.description }</td>
@@ -150,14 +151,15 @@ class Wallet extends React.Component {
                     <td>{ el.method }</td>
                     <td>{ ((+el.value).toFixed(2)) }</td>
                     <td>{ name }</td>
-                    <td>{ +ask.toFixed(2) }</td>
-                    )
+                    <td>{ (+ask).toFixed(2) }</td>
+                    <td>{ el.value * +ask }</td>
+                    <td>Real</td>
                   </tr>
                 );
-              }}) */}
+              })}
+
             </tbody>
           </table>
-
         </div>
       );
     }

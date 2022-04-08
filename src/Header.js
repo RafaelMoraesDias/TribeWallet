@@ -10,10 +10,10 @@ class Header extends React.Component {
       console.log(expenses);
       const expensesValue = expenses.map((elem) => {
         const { value, currency, exchangeRates } = elem;
-        console.log(currency);
-        console.log(exchangeRates[currency]);
+        // console.log(currency);
+        // console.log(exchangeRates[currency]);
         const convertedValue = exchangeRates[currency].ask;
-        console.log(convertedValue);
+        // console.log(convertedValue);
         const FinalValue = +value * convertedValue;
         return FinalValue;
       });
