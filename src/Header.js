@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import './header.css';
 
 class Header extends React.Component {
   render() {
@@ -21,16 +22,20 @@ class Header extends React.Component {
     }
 
     return (
-      <div>
-        <h2 data-testid="email-field">
-          { email }
-        </h2>
-        <h3 data-testid="total-field">
-          { soma }
-        </h3>
-        <h3 data-testid="header-currency-field">
-          BRL
-        </h3>
+      <div className="titulo">
+        <h1>TribeWallet</h1>
+
+        <div>
+          <h2 data-testid="email-field">
+            { email }
+          </h2>
+          <h3 data-testid="total-field">
+            { soma }
+          </h3>
+          <h3 data-testid="header-currency-field">
+            BRL
+          </h3>
+        </div>
       </div>
     );
   }

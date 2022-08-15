@@ -1,0 +1,7 @@
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:rgb(90, 85, 85);
+    color: white;
+}

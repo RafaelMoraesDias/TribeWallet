@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { getApi, getExchange } from '../actions/api';
+import '../form.css';
 import Header from '../Header';
 import '../table.css';
 
@@ -48,84 +49,89 @@ class Wallet extends React.Component {
       return (
         <div>
           <Header />
-          <form onSubmit={ this.handleClickSubmit }>
-            <label htmlFor="value">
-              Valor da Despesa
-              <input
-                id="value"
-                type="number"
-                data-testid="value-input"
-                name="value"
-                value={ value }
-                onChange={ this.handleChange }
-              />
+          <div className="formulario">
+            <form onSubmit={ this.handleClickSubmit }>
+              <label htmlFor="value">
+                Valor da Despesa
+                <input
+                  id="value"
+                  type="number"
+                  data-testid="value-input"
+                  name="value"
+                  value={ value }
+                  onChange={ this.handleChange }
+                />
 
-            </label>
-            <label
-              htmlFor="description"
-            >
-              Descrição da Despesa
-              <input
-                id="description"
-                value={ description }
-                type="text"
-                name="description"
-                data-testid="description-input"
-                onChange={ this.handleChange }
-              />
+              </label>
+              <label
+                htmlFor="description"
+              >
+                Descrição da Despesa
+                <input
+                  id="description"
+                  value={ description }
+                  type="text"
+                  name="description"
+                  data-testid="description-input"
+                  onChange={ this.handleChange }
+                />
 
-            </label>
-            <label htmlFor="currency">
-              Moeda
-              <select
-                data-testid="currency-input"
-                id="currency"
-                value={ currency }
-                name="currency"
-                onChange={ this.handleChange }
+              </label>
+              <label htmlFor="currency">
+                Moeda:
+                <select
+                  data-testid="currency-input"
+                  id="currency"
+                  value={ currency }
+                  name="currency"
+                  onChange={ this.handleChange }
+                >
+                  {currencies.map((el, index) => (
+                    <option key={ index } value={ el }>
+                      {el}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label htmlFor="payment">
+                Método:
+                <select
+                  id="payment"
+                  name="method"
+                  data-testid="method-input"
+                  value={ method }
+                  onChange={ this.handleChange }
+                >
+                  <option value="Dinheiro">Dinheiro</option>
+                  // eslint-disable-next-line react/jsx-max-depth
+                  <option value="Cartão de crédito">Cartão de crédito</option>
+                  <option value="Cartão de débito">Cartão de débito</option>
+                </select>
+              </label>
+              <label htmlFor="category">
+                Categoria:
+                <select
+                  id="category"
+                  name="tag"
+                  data-testid="tag-input"
+                  value={ tag }
+                  onChange={ this.handleChange }
+                >
+                  <option value="Alimentação">Alimentação</option>
+                  <option value="Lazer">Lazer</option>
+                  <option value="Trabalho"> Trabalho</option>
+                  <option value="Transporte">Transporte</option>
+                  <option value="Saúde">Saúde</option>
+                </select>
+              </label>
+              <button
+                type="submit"
               >
-                {currencies.map((el, index) => (
-                  <option key={ index } value={ el }>
-                    {el}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label htmlFor="payment">
-              <select
-                id="payment"
-                name="method"
-                data-testid="method-input"
-                value={ method }
-                onChange={ this.handleChange }
-              >
-                <option value="Dinheiro">Dinheiro</option>
-                <option value="Cartão de crédito">Cartão de crédito</option>
-                <option value="Cartão de débito">Cartão de débito</option>
-              </select>
-            </label>
-            <label htmlFor="category">
-              <select
-                id="category"
-                name="tag"
-                data-testid="tag-input"
-                value={ tag }
-                onChange={ this.handleChange }
-              >
-                <option value="Alimentação">Alimentação</option>
-                <option value="Lazer">Lazer</option>
-                <option value="Trabalho"> Trabalho</option>
-                <option value="Transporte">Transporte</option>
-                <option value="Saúde">Saúde</option>
-              </select>
-            </label>
-            <button
-              type="submit"
-            >
-              Adicionar Despesa
+                Adicionar Despesa
 
-            </button>
-          </form>
+              </button>
+            </form>
+          </div>
 
           <table>
             <tbody>
@@ -154,6 +160,10 @@ class Wallet extends React.Component {
                     <td>{ (+ask).toFixed(2) }</td>
                     <td>{ el.value * +ask }</td>
                     <td>Real</td>
+                    <td>
+                      <button type="button" data-testid="delete-btn">Editar</button>
+                      <button type="button" data-testid="edit-btn">Excluir</button>
+                    </td>
                   </tr>
                 );
               })}
