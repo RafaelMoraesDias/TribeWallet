@@ -1,0 +1,19 @@
+.Login {
+    display:flex;
+    flex-direction: column;
+    background-color: gray;
+    width: 100%;
+    align-content: center;   
+    padding: 10px; 
+    color: white;
+    height: 100%;
+
+}
+
+.Login button {
+    padding: 5px; 
+    border-radius: 15px;
+    width: 40%;
+    margin-top: 10px;
+
+}

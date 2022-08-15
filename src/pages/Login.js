@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import login from '../actions';
+import './StyleLogin.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class Login extends React.Component {
     const { IsDisable } = this.state;
     return (
       <div className="Login">
+        <h1>TribeWallet</h1>
         <input
           name="email"
           type="email"
