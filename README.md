@@ -1,36 +1,27 @@
 # Trybe Wallet
 <p align="center">
-  <img 
-    src="./screenshots/trybewallet.gif"
-  >
-</p>
+  </p>
 </br>
-### About:
-TrybeWallet is a project in which an application was developed to help users manage their expenses in different currencies.
-This was the first project where I started to pay more attention to how accessible my application is, so I followed up with a color palette that could be within the WCAG Standard - AA and AAA.
-In addition, the project consisted of using ReactJS together with Redux to manage application states and the conversation between components and also using Bootstrap to make it responsive.
-### Aplication
-[Click here](https://trybewallet-eduardomuchak.vercel.app/) to view the final version of this project in your browser.
-### Progress
-- [x] Programming logic for application operation
-- [x] Interface development (Mobile First)
-- [x] Interface improvement for bigger screens (Tablets and Desktops).
-## Technologies:
-- Bootstrap
+
+### Sobre:
+TrybeWallet  é um projeto desenvolvido para ajudar nas finanças pessoas, como um controle de despezas, ele adiciona a despeza e converte o valor para várias moedas do mundo.
+
+
+## Tecnologias:
+
 - JavaScript ES6+
 - React.js
 - React Router
-- React Icons (Icon library)
 - React Testing Library (RTL)
 - Redux
-- Vercel
-## Methodologies:
-- Mobile First
+
+## Metodologias:
 - Kanban
-## How to run the application:
+
+## Rodando a aplicação:
 To download the code:
 ```
-git clone git@github.com:eduardomuchak/16-trybe-wallet.git
+git clone git@github.com:RafaelMoraesDias/TribeWallet.git
 ```
 Enter the project root folder:
 ```
