@@ -51,8 +51,9 @@ class Wallet extends React.Component {
           <Header />
           <div className="formulario">
             <form onSubmit={ this.handleClickSubmit }>
+              Valor
               <label htmlFor="value">
-                Valor da Despesa
+
                 <input
                   id="value"
                   type="number"
@@ -63,10 +64,11 @@ class Wallet extends React.Component {
                 />
 
               </label>
+              Descrição
               <label
                 htmlFor="description"
               >
-                Descrição da Despesa
+
                 <input
                   id="description"
                   value={ description }
@@ -77,8 +79,9 @@ class Wallet extends React.Component {
                 />
 
               </label>
+              Moeda:
               <label htmlFor="currency">
-                Moeda:
+
                 <select
                   data-testid="currency-input"
                   id="currency"
@@ -93,8 +96,9 @@ class Wallet extends React.Component {
                   ))}
                 </select>
               </label>
+              Método:
               <label htmlFor="payment">
-                Método:
+
                 <select
                   id="payment"
                   name="method"
@@ -108,8 +112,9 @@ class Wallet extends React.Component {
                   <option value="Cartão de débito">Cartão de débito</option>
                 </select>
               </label>
+              Categoria:
               <label htmlFor="category">
-                Categoria:
+
                 <select
                   id="category"
                   name="tag"
